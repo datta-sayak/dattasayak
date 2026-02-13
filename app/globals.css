@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=BBH+Bogle&family=VT323&display=swap");
+@import "tailwindcss";
+
+* {
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* BBH Bogle font for headings */
+.font-heading {
+  font-family: 'BBH Bogle', sans-serif;
+}
+
+.font-mono {
+  font-family: 'VT323', monospace;
+}
