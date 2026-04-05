@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, VT323 } from "next/font/google";
 import { ThemeProvider } from "@/app/context/ThemeContext";
+import { Analytics } from '@vercel/analytics/next';
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${dmSans.variable} ${vt323.variable} antialiased`}>
         <ThemeProvider>{children}</ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
