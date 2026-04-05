@@ -2,37 +2,48 @@ import { ExternalLink, Github } from 'lucide-react';
 import { projects } from '@/data/projects';
 
 export function Projects() {
+  const validProjects = projects.filter(
+    (project) =>
+      project.name.trim() ||
+      project.description.trim() ||
+      project.tech.length > 0 ||
+      project.github.trim() ||
+      project.demo.trim()
+  );
+
   return (
-    <div className="relative">
-      <div className="space-y-12">
-        {projects.map((project, index) => (
-          <div key={index} className="grid grid-cols-1 md:grid-cols-12 gap-6 group transition-transform hover:translate-x-2">
-            <div className="md:col-span-7">
-              <div className="flex items-start gap-4 mb-3">
-                <span className="text-lg font-mono text-white/70 font-bold">{project.number}</span>
+    <div className="pb-10">
+      <p className="section-kicker">Projects</p>
+
+      <div className="space-y-11">
+        {validProjects.map((project, index) => (
+          <div key={index} className="group grid grid-cols-1 gap-6">
+            <div>
+              <div className="flex items-start gap-3">
+                <span className="pt-0.5 text-xs font-semibold tracking-[0.08em] text-[#8d98a8]">{project.number}</span>
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-2xl font-heading text-white">
+                  <div className="mb-2 flex items-center gap-3">
+                    <h3 className="text-xl font-semibold text-[#1f2f44] opacity-60 transition-colors group-hover:text-[#13253b]">
                       {project.name}
                     </h3>
                     <div className="flex gap-2">
-                      {project.github && (
+                      {project.github.trim() && (
                         <a
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-white/70 hover:text-white transition-colors"
+                          className="text-[#7a889d] transition-colors hover:text-[#23344b]"
                           title="GitHub"
                         >
                           <Github className="w-4 h-4" />
                         </a>
                       )}
-                      {project.demo && (
+                      {project.demo.trim() && (
                         <a
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-white/70 hover:text-white transition-colors"
+                          className="text-[#7a889d] transition-colors hover:text-[#23344b]"
                           title="Live Demo"
                         >
                           <ExternalLink className="w-4 h-4" />
@@ -40,20 +51,10 @@ export function Projects() {
                       )}
                     </div>
                   </div>
-                  <p className="text-base text-white leading-relaxed">
+                  <p className="text-xs leading-relaxed text-[#44566e] sm:text-sm">
                     {project.description}
                   </p>
                 </div>
-              </div>
-            </div>
-
-            <div className="md:col-span-5 md:border-l-3 md:border-white/10 md:pl-8">
-              <div className="flex flex-wrap gap-3">
-                {project.tech.map((tech, i) => (
-                  <span key={i} className="text-sm text-white/70 font-mono">
-                    {tech}
-                  </span>
-                ))}
               </div>
             </div>
           </div>

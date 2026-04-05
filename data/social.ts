@@ -15,7 +15,7 @@ export const socialLinks = [
     alt: "LeetCode"
   },
   {
-    href: "",
+    href: "https://instagram.com/datta.sayak",
     src: "/instagram.svg",
     alt: "Instagram"
   }

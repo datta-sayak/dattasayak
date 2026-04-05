@@ -1,15 +1,106 @@
-@import url("https://fonts.googleapis.com/css2?family=BBH+Bogle&family=VT323&display=swap");
 @import "tailwindcss";
 
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-white-70: rgba(255, 255, 255, 0.7);
+  --color-white-50: rgba(255, 255, 255, 0.5);
+  --color-semiwhite: #8e99a8;
+  --scrollbar-size: 6px;
+  --scrollbar-thumb: #d8bcbc;
+  --scrollbar-thumb-hover: #d8bcbc;
+}
+
 * {
-  font-family: var(--font-inter), sans-serif;
+  box-sizing: border-box;
 }
 
-/* BBH Bogle font for headings */
-.font-heading {
-  font-family: 'BBH Bogle', sans-serif;
+html,
+body {
+  min-height: 100%;
 }
 
-.font-mono {
-  font-family: 'VT323', monospace;
+body {
+  margin: 0;
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.55;
+  background: #ffffff;
 }
+
+/* Minimal scrollbar style for Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+/* Minimal scrollbar style for Chromium/WebKit */
+*::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  /* background: #dedede; */
+  color: #d8bcbc;
+}
+
+.font-vt323 {
+  font-family: var(--font-vt323);
+}
+
+.section-kicker {
+  @apply mb-6 text-lg font-extrabold uppercase tracking-[0.25em] text-[#d8bcbc] sm:text-xl;
+}
+
+.theme-dark h1,
+.theme-dark h2,
+.theme-dark h3,
+.theme-dark h4,
+.theme-dark h5,
+.theme-dark h6 {
+  color: #ffffff !important;
+}
+
+.theme-dark p,
+.theme-dark li,
+.theme-dark span,
+.theme-dark a,
+.theme-dark button {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.theme-dark * {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.theme-dark button {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.theme-dark .skills-edge-left {
+  background-image: linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0.85) 55%, rgba(0, 0, 0, 0) 100%) !important;
+}
+
+.theme-dark .skills-edge-right {
+  background-image: linear-gradient(to left, #000000 0%, rgba(0, 0, 0, 0.85) 55%, rgba(0, 0, 0, 0) 100%) !important;
+}
+

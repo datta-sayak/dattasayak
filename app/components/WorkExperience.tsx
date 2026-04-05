@@ -1,31 +1,28 @@
 import { experiences } from '@/data/experience';
 
 export function WorkExperience() {
+
   return (
-    <div className="relative">
-      <div className="space-y-12">
+    <div className="pb-10">
+      <p className="section-kicker">Experience</p>
+
+      <div className="space-y-11">
         {experiences.map((exp, index) => (
-          <div key={index} className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            <div className="md:col-span-4">
-              <div className="flex items-start gap-4 mb-3">
-                <span className="text-lg font-mono text-white/70 font-bold">{exp.number}</span>
-                <div>
-                  <h3 className="text-2xl font-heading text-white mb-1">{exp.position}</h3>
-                  <p className="text-base text-white">{exp.company}</p>
-                  <p className="text-sm text-white/70 mt-1">{exp.location}</p>
-                  <p className="text-sm font-mono text-white/70 mt-2">{exp.duration}</p>
+          <div key={index} className="grid grid-cols-1 gap-6">
+            <div>
+              <div className="flex flex-col gap-3">
+                <div className="flex items-start gap-3 justify-between">
+                  <div className="flex gap-3">
+                    <span className="pt-0.5 text-xs font-semibold tracking-[0.08em] text-[#8d98a8]">{exp.number}</span>
+                    <div>
+                      <h3 className="text-lg leading-tight text-black">{exp.position}</h3>
+                      <p className="mt-1 text-[11px] font-bold text-black opacity-60 sm:text-xs">{exp.location}</p>
+                      <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.08em] text-black opacity-60 sm:text-xs">{exp.duration}</p>
+                    </div>
+                  </div>
+                  <p className="text-sm text-black text-right break-words">{exp.company}</p>
                 </div>
               </div>
-            </div>
-
-            <div className="md:col-span-8 md:border-l-3 md:border-white/10 md:pl-8">
-              <ul className="space-y-3">
-                {exp.achievements.map((achievement, i) => (
-                  <li key={i} className="text-base text-white leading-relaxed">
-                    • {achievement}
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         ))}

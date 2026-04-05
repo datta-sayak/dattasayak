@@ -1,31 +1,31 @@
 import { education } from '@/data/education';
 
 export function Education() {
-  return (
-    <div className="relative">
-      <div className="space-y-12">
-        {education.map((edu, index) => (
-          <div key={index} className="grid grid-cols-1 md:grid-cols-12 gap-6">
-            <div className="md:col-span-5">
-              <div className="flex items-start gap-4 mb-3">
-                <span className="text-lg font-mono text-white/70 font-bold">{edu.number}</span>
-                <div>
-                  <h3 className="text-2xl font-heading text-white mb-2">{edu.degree}</h3>
-                  <p className="text-base text-white/70">{edu.institution}</p>
-                  <p className="text-sm font-mono text-white/70 mt-2">{edu.duration}</p>
-                  <p className="text-sm text-white/70 mt-1">GPA: {edu.gpa}</p>
-                </div>
-              </div>
-            </div>
+  const validEducation = education.filter(
+    (edu) =>
+      edu.degree.trim() ||
+      edu.institution.trim() ||
+      edu.duration.trim() ||
+      edu.gpa.trim() ||
+      edu.coursework.length > 0
+  );
 
-            <div className="md:col-span-7 md:border-l md:border-white/10 md:pl-8">
-              <h4 className="text-sm font-mono text-white/70 mb-3 uppercase">Coursework</h4>
-              <div className="flex flex-wrap gap-3">
-                {edu.coursework.map((course, i) => (
-                  <span key={i} className="text-sm text-white/70 font-mono">
-                    {course}
-                  </span>
-                ))}
+  return (
+    <div className="pb-10">
+      <p className="section-kicker">Education</p>
+
+      <div className="space-y-11">
+        {validEducation.map((edu, index) => (
+          <div key={index} className="grid grid-cols-1 gap-6">
+            <div>
+              <div className="flex items-start gap-3">
+                <span className="pt-0.5 text-xs font-semibold tracking-[0.08em] text-[#8d98a8]">{edu.number}</span>
+                <div>
+                  <h3 className="text-xl font-semibold leading-tight text-[#1f2f44] opacity-60">{edu.degree}</h3>
+                  <p className="mt-1 text-sm text-[#273a52]">{edu.institution}</p>
+                  <p className="mt-2 text-[11px] uppercase tracking-[0.08em] text-[#8693a5] sm:text-xs">{edu.duration}</p>
+                  <p className="mt-1 text-[11px] text-[#6f7e92] sm:text-xs">GPA: {edu.gpa}</p>
+                </div>
               </div>
             </div>
           </div>
