@@ -1,6 +1,6 @@
 export const skills = {
-  'Languages': ['Go', 'Python', 'TypeScript', 'JavaScript', 'Java', 'C++', 'C'],
-  'Frontend': ['HTML', 'CSS', 'React', 'Next.js', 'Tailwind CSS'],
-  'Backend & DB': ['Node.js', 'Express', 'PostgreSQL', 'MongoDB', 'Redis'],
-  'Infra & Tools': ['Docker', 'Git', 'Linux', 'Kubernetes', 'GCP'],
+  'Languages': {'Go': 'go', 'Python': 'python', 'TypeScript': 'typescript', 'JavaScript': 'javascript', 'Java': 'java', 'C++': 'cpp', 'C': 'c'},
+  'Frontend': {'HTML': 'html', 'CSS': 'css', 'React': 'react', 'Next.js': 'nextjs', 'Tailwind CSS': 'tailwind'},
+  'Backend & DB': {'Node.js': 'nodejs', 'Express': 'express', 'PostgreSQL': 'postgress', 'MongoDB': 'mongodb', 'Redis': 'redis'},
+  'Infra & Tools': {'Docker': 'docker', 'Git': 'git', 'Linux': 'linux', 'Kubernetes': 'kubernetes', 'GCP': 'gcp'},
 };

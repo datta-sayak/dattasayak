@@ -23,7 +23,7 @@ export function Projects() {
                 <span className="pt-0.5 text-xs font-semibold tracking-[0.08em] text-[#8d98a8]">{project.number}</span>
                 <div className="flex-1">
                   <div className="mb-2 flex items-center gap-3">
-                    <h3 className="text-xl font-semibold text-[#1f2f44] opacity-60 transition-colors group-hover:text-[#13253b]">
+                    <h3 className="text-lg leading-tight text-black group-hover:text-[#13253b]">
                       {project.name}
                     </h3>
                     <div className="flex gap-2">
@@ -51,7 +51,7 @@ export function Projects() {
                       )}
                     </div>
                   </div>
-                  <p className="text-xs leading-relaxed text-[#44566e] sm:text-sm">
+                  <p className="text-xs font-light text-[#44566e] sm:text-sm">
                     {project.description}
                   </p>
                 </div>

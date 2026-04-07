@@ -21,7 +21,7 @@ export function Achievements() {
                 <span className="pt-0.5 text-xs font-semibold tracking-[0.08em] text-[#8d98a8]">{achievement.number}</span>
                 <div>
                   <h3 className="text-lg text-black">{achievement.title}</h3>
-                  <p className="mt-2 text-xs leading-relaxed text-[#44566e] sm:text-sm">{achievement.description}</p>
+                  <p className="mt-2 text-xs font-light text-[#44566e] sm:text-sm">{achievement.description}</p>
                 </div>
               </div>
             </div>

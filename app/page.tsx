@@ -1,6 +1,5 @@
 ﻿"use client";
 
-import { useMemo } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { About } from '@/app/components/About';
@@ -11,21 +10,19 @@ import { Achievements } from '@/app/components/Achievements';
 import { GitHubCalendar } from '@/app/components/GitHubCalendar';
 import { useTheme } from '@/app/context/ThemeContext';
 import { socialLinks } from '@/data/social';
+import { TechStack } from './components/TechStack';
 
 export default function App() {
   const { isDarkMode, toggleTheme } = useTheme();
 
-  const sections = useMemo(
-    () => [
-      { id: 'about', label: 'About' },
-      { id: 'experience', label: 'Experience' },
-      { id: 'projects', label: 'Projects' },
-      { id: 'achievements', label: 'Achievements' },
-      { id: 'education', label: 'Education' },
-      { id: 'github-calendar', label: 'GitHub' },
-    ],
-    []
-  );
+  const sections = [
+    'About', 
+    'Experience', 
+    'Projects', 
+    'Achievements', 
+    'Education',
+    'Contributions'
+  ];
 
   return (
     <div className="relative min-h-screen pb-28">
@@ -74,8 +71,8 @@ export default function App() {
 
           <nav className="hidden sm:flex w-full justify-center flex-wrap gap-x-8 text-[11px] uppercase tracking-[0.11em] text-[#7d8999] sm:text-xs">
             {sections.map((section) => (
-              <a key={section.id} href={`#${section.id}`} className="transition-colors hover:text-[#1d2a3a]">
-                {section.label}
+              <a key={section} href={`#${section}`} className="transition-colors hover:text-[#1d2a3a]">
+                {section}
               </a>
             ))}
           </nav>
@@ -95,39 +92,43 @@ export default function App() {
           }}
           className="space-y-14 py-10"
         >
-          <motion.section id="about" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}>
+          <motion.section id="About" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}>
             <About />
           </motion.section>
 
-          <motion.section id="experience" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}>
+          <motion.section id="Techstack" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}>
+            <TechStack />
+          </motion.section>
+
+          <motion.section id="Experience" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}>
             <WorkExperience />
           </motion.section>
 
-          <motion.section id="projects" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}>
+          <motion.section id="Projects" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}>
             <Projects />
           </motion.section>
 
-          <motion.section id="achievements" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}>
+          <motion.section id="Achievements" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}>
             <Achievements />
           </motion.section>
 
-          <motion.section id="education" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}>
+          <motion.section id="Education" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0 } }}>
             <Education />
           </motion.section>
         </motion.div>
 
         <motion.section
-          id="github-calendar"
+          id="Contributions"
           variants={{
             hidden: { opacity: 0, y: 14 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="space-y-4 pt-14"
+          // className="space-y-4 pt-14"
         >
           <div>
             <p className="section-kicker">Github Contributions</p>
           </div>
-          <div className="overflow-x-auto rounded-lg">
+          <div className="overflow-x-auto">
             <div>
               <GitHubCalendar username="datta-sayak" />
             </div>

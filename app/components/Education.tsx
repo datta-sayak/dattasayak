@@ -21,7 +21,7 @@ export function Education() {
               <div className="flex items-start gap-3">
                 <span className="pt-0.5 text-xs font-semibold tracking-[0.08em] text-[#8d98a8]">{edu.number}</span>
                 <div>
-                  <h3 className="text-xl font-semibold leading-tight text-[#1f2f44] opacity-60">{edu.degree}</h3>
+                  <h3 className="text-lg leading-tight text-black">{edu.degree}</h3>
                   <p className="mt-1 text-sm text-[#273a52]">{edu.institution}</p>
                   <p className="mt-2 text-[11px] uppercase tracking-[0.08em] text-[#8693a5] sm:text-xs">{edu.duration}</p>
                   <p className="mt-1 text-[11px] text-[#6f7e92] sm:text-xs">GPA: {edu.gpa}</p>
