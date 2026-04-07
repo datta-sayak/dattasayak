@@ -41,7 +41,7 @@ export function TechStack() {
             type="button"
             onClick={handleToggleFullStack}
             aria-expanded={isFullStackOpen}
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#8a97a8] transition-colors hover:text-[#5e6e84]"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-black/60 transition-colors hover:text-black"
           >
             {toggleLabel}
             {toggleIcon}
@@ -73,7 +73,7 @@ export function TechStack() {
           <div className="mt-8 grid grid-cols-1 gap-x-10 gap-y-10 lg:grid-cols-3">
             {skillGroups.map((category) => (
               <div key={category} className="pl-3">
-                <h4 className="border-b border-[#edf1f5] pb-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8a97a8]">
+                <h4 className="border-b border-black/20 pb-2 text-sm font-bold uppercase tracking-widest text-black/50">
                   {category}
                 </h4>
                 <ul className="mt-5 space-y-4 pl-1">
@@ -81,7 +81,7 @@ export function TechStack() {
                     const iconSrc = `/skills/${iconName}.svg`;
 
                     return (
-                      <li key={skill} className="flex items-center gap-3 text-xs text-[#4a6078] transition-all hover:text-black hover:text-bold">
+                      <li key={skill} className="flex items-center gap-3 text-xs text-black/60 transition-all hover:text-black hover:text-extrabold">
                         <Image src={iconSrc} alt={skill} width={24} height={24} className="h-6 w-6 object-contain" />
                         <span>{skill}</span>
                       </li>

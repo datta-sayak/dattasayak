@@ -18,16 +18,16 @@ export function Achievements() {
           <div key={index} className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-9">
             <div className="md:col-span-8">
               <div className="flex items-start gap-3">
-                <span className="pt-0.5 text-xs font-semibold tracking-[0.08em] text-[#8d98a8]">{achievement.number}</span>
+                <span className="pt-1 text-xs font-semibold text-black opacity-40">{achievement.number}</span>
                 <div>
                   <h3 className="text-lg text-black">{achievement.title}</h3>
-                  <p className="mt-2 text-xs font-light text-[#44566e] sm:text-sm">{achievement.description}</p>
+                  <p className="mt-2 text-xs font-normal text-black/60 sm:text-sm">{achievement.description}</p>
                 </div>
               </div>
             </div>
 
             <div className="md:col-span-4 flex items-stretch">
-              <div className="w-full flex flex-col items-end gap-1 text-sm text-black border-l border-[#c7d0dc] pl-4">
+              <div className="w-full flex flex-col items-end gap-1 text-sm text-black border-l border-black/30 pl-4">
                 <span>{achievement.type}</span>
                 <span>{achievement.date}</span>
               </div>

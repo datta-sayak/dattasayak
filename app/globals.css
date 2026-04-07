@@ -1,11 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  --color-white: #ffffff;
-  --color-black: #000000;
-  --color-white-70: rgba(255, 255, 255, 0.7);
-  --color-white-50: rgba(255, 255, 255, 0.5);
-  --color-semiwhite: #8e99a8;
   --scrollbar-size: 6px;
   --scrollbar-thumb: #d8bcbc;
   --scrollbar-thumb-hover: #d8bcbc;
@@ -15,24 +10,20 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html {
   min-height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 body {
+  min-height: 100%;
   margin: 0;
   font-family: var(--font-sans), sans-serif;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.55;
   background: #ffffff;
-}
-
-/* Minimal scrollbar style for Firefox */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 /* Minimal scrollbar style for Chromium/WebKit */
@@ -59,7 +50,6 @@ a {
 }
 
 ::selection {
-  /* background: #dedede; */
   color: #d8bcbc;
 }
 

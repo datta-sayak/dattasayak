@@ -20,10 +20,10 @@ export function Projects() {
           <div key={index} className="group grid grid-cols-1 gap-6">
             <div>
               <div className="flex items-start gap-3">
-                <span className="pt-0.5 text-xs font-semibold tracking-[0.08em] text-[#8d98a8]">{project.number}</span>
+                <span className="pt-0.5 text-xs font-semibold text-black opacity-40">{project.number}</span>
                 <div className="flex-1">
                   <div className="mb-2 flex items-center gap-3">
-                    <h3 className="text-lg leading-tight text-black group-hover:text-[#13253b]">
+                    <h3 className="text-lg text-black">
                       {project.name}
                     </h3>
                     <div className="flex gap-2">
@@ -32,10 +32,9 @@ export function Projects() {
                           href={project.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#7a889d] transition-colors hover:text-[#23344b]"
                           title="GitHub"
                         >
-                          <Github className="w-4 h-4" />
+                          <Github className="w-4 h-4 opacity-60 transition-colors hover:opacity-100" />
                         </a>
                       )}
                       {project.demo.trim() && (
@@ -43,15 +42,14 @@ export function Projects() {
                           href={project.demo}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[#7a889d] transition-colors hover:text-[#23344b]"
                           title="Live Demo"
                         >
-                          <ExternalLink className="w-4 h-4" />
+                          <ExternalLink className="w-4 h-4 opacity-60 transition-colors hover:opacity-100" />
                         </a>
                       )}
                     </div>
                   </div>
-                  <p className="text-xs font-light text-[#44566e] sm:text-sm">
+                  <p className="text-xs font-light text-black/60 sm:text-sm">
                     {project.description}
                   </p>
                 </div>

@@ -13,11 +13,11 @@ export function WorkExperience() {
               <div className="flex flex-col gap-3">
                 <div className="flex items-start gap-3 justify-between">
                   <div className="flex gap-3">
-                    <span className="pt-0.5 text-xs font-semibold tracking-[0.08em] text-[#8d98a8]">{exp.number}</span>
+                    <span className="text-xs font-semibold text-black opacity-40">{exp.number}</span>
                     <div>
                       <h3 className="text-lg leading-tight text-black">{exp.position}</h3>
-                      <p className="mt-1 text-[11px] font-bold text-black opacity-60 sm:text-xs">{exp.location}</p>
-                      <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.08em] text-black opacity-60 sm:text-xs">{exp.duration}</p>
+                      <p className="mt-1 text-sm font-bold text-black opacity-60 sm:text-xs">{exp.location}</p>
+                      <p className="mt-2 text-sm font-bold uppercase tracking-wide text-black opacity-60 sm:text-xs">{exp.duration}</p>
                     </div>
                   </div>
                   <p className="text-sm text-black text-right break-words">{exp.company}</p>
