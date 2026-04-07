@@ -85,16 +85,14 @@ export function GitHubCalendar({
     return <div>Loading...</div>;
   }
 
-  return (
-    <div className="flex flex-col items-center">
-      <div className="origin-top scale-[0.9]">
-        <CalendarGrid contributions={data.contributions} />
-      </div>
-      <div className=''>
-        {data.total} contributions in the last year
-      </div>
+  return (<>
+    <div className="flex flex-col items-center scale-[0.92]">
+      <CalendarGrid contributions={data.contributions} />
     </div>
-  );
+    <h1 className="text-black/60 px-[6px]">
+      {data.total} contributions in the last year
+    </h1>
+  </>);
 }
 
 interface CalendarGridProps {
@@ -158,7 +156,7 @@ function CalendarGrid({ contributions }: CalendarGridProps) {
         {weeks.map((week, weekIndex) => {
           const monthLabel = monthLabels.find(m => m.weekIndex === weekIndex);
           return (
-            <div key={weekIndex} className="w-3 text-center text-[0]">
+            <div key={weekIndex} className="w-3 text-center">
               {monthLabel && (
                 <span className="inline-block whitespace-nowrap text-[11px] text-[#666] [.theme-dark_&]:text-[#8b949e]">
                   {monthLabel.month}
@@ -177,7 +175,7 @@ function CalendarGrid({ contributions }: CalendarGridProps) {
               <div
                 key={`${weekIndex}-${dayIndex}`}
                 title={contribution ? `${contribution.date}` : ''}
-                className={`h-3 w-3 rounded-[2px] ${
+                className={`h-3 w-3 rounded-xs ${
                   LEVEL_BG_CLASSES[contribution?.level ?? 0]
                 }`}
               />

@@ -31,7 +31,7 @@ export default function App() {
         role="switch"
         aria-checked={isDarkMode}
         onClick={toggleTheme}
-        className={`fixed top-8 right-7 z-50 inline-flex h-6 w-12 items-center rounded-full border transition-colors sm:right-12 lg:right-24 ${
+        className={`fixed top-6 right-4 z-50 inline-flex h-6 w-12 items-center rounded-full border transition-colors sm:right-7 ${
           isDarkMode ? 'border-white/20 bg-black' : 'border-[#c5ccd4] bg-white'
         }`}
       >
