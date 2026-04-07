@@ -10,7 +10,7 @@ export const achievements = [
     date: '2025',
     type: 'Open Source',
     title: 'Top 5 Contributor - College OSS Sprint',
-    description: 'Ranked in top contributors for merged pull requests, issue triaging, and technical documentation across student-led repositories.',
+    description: 'Ranked in top contributors for merged pull requests, and technical documentation across student-led repositories.',
     number: '02'
   },
   {
