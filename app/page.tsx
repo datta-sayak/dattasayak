@@ -61,7 +61,7 @@ export default function App() {
         aria-checked={isDarkMode}
         onClick={toggleTheme}
         className={`fixed top-6 right-4 z-50 inline-flex h-6 w-12 items-center rounded-full border transition-colors sm:right-7 ${
-          isDarkMode ? 'border-white/20 bg-black' : 'border-[#c5ccd4] bg-white'
+          isDarkMode ? 'border-white/20 bg-[#101010]' : 'border-[#c5ccd4] bg-white'
         }`}
       >
         <span

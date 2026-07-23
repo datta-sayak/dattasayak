@@ -22,7 +22,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <ThemeContext.Provider value={value}>
-      <div className={isDarkMode ? 'theme-dark bg-black text-white' : 'bg-white text-black'}>{children}</div>
+      <div className={isDarkMode ? 'theme-dark bg-[#101010] text-white' : 'bg-white text-black'}>{children}</div>
     </ThemeContext.Provider>
   );
 }
