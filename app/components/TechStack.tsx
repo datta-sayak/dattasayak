@@ -5,6 +5,7 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import Image from "next/image";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from "react";
+import { Marquee, MarqueeContent, MarqueeFade, MarqueeItem } from "@/components/kibo-ui/marquee";
 
 const skillGroups = Object.keys(skills) as Array<keyof typeof skills>;
 
@@ -46,25 +47,30 @@ export function TechStack() {
               transition={{ duration: 0.4, ease: 'easeInOut' }}
               className="relative mt-7 overflow-hidden py-5"
             >
-              <motion.div
-                className="flex w-max items-center sm:gap-12 px-2"
-                animate={{ x: ['0%', '-50%'] }}
-                transition={{ duration: 30, ease: 'linear', repeat: Infinity }}
-              >
+            <Marquee>
+              <MarqueeContent>
                 {[...allTech, ...allTech].map((skill, i) => {
                   const iconSrc = `/skills/${skillIconLookup[skill]}.svg`;
-
                   return (
-                    <div key={`${skill}-${i}`} className="flex h-12 w-12 items-center justify-center text-black" title={skill}>
-                      <Image src={iconSrc} alt={skill} width={30} height={30} className="h-6 w-6 sm:h-10 sm:w-10 grayscale object-contain" />
-                    </div>
+                    <MarqueeItem 
+                      key={skill+i} 
+                      className="flex h-12 w-12 items-center justify-center text-black" 
+                      title={skill}>
+                      <Image 
+                        src={iconSrc} 
+                        alt={skill} 
+                        width={30} 
+                        height={30} 
+                        className="h-6 w-6 sm:h-10 sm:w-10 grayscale object-contain" 
+                      />
+                    </MarqueeItem>
                   );
                 })}
-              </motion.div>
-
-              <div className="skills-edge-left pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white via-white/85 to-transparent" />
-              <div className="skills-edge-right pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white via-white/85 to-transparent" />
-            </motion.div>
+              </MarqueeContent>
+              <MarqueeFade side="left" />
+              <MarqueeFade side="right" />
+            </Marquee>
+          </motion.div>
           ) : (
             <motion.div
               key="grid"
