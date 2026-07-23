@@ -133,7 +133,7 @@ export default function App() {
           <div>
             <p className="section-kicker">Github Contributions</p>
           </div>
-          <div style={{ overflowX: "hidden" }} className="flex justify-center overflow-hidden text-sm text-black/70">
+          <div className="flex justify-center overflow-hidden text-sm text-black/70">
             <GitHubCalendar
               username="datta-sayak"
               transformData={selectLastMonths}
