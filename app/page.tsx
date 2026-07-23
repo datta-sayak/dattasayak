@@ -11,6 +11,8 @@ import { useTheme } from '@/app/context/ThemeContext';
 import { socialLinks } from '@/data/social';
 import { TechStack } from './components/TechStack';
 import dynamic from "next/dynamic";
+import { ThemeToggle } from '@/components/shadcnblocks/theme-toggle';
+import { cn } from '@/lib/utils';
 
 const GitHubCalendar = dynamic(
   () => import("react-github-calendar").then(
@@ -55,21 +57,15 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen pb-28">
-      <button
-        type="button"
-        role="switch"
-        aria-checked={isDarkMode}
+      <ThemeToggle
+        variant="ghost"
+        size="icon"
         onClick={toggleTheme}
-        className={`fixed top-6 right-4 z-50 inline-flex h-6 w-12 items-center rounded-full border transition-colors sm:right-7 ${
-          isDarkMode ? 'border-white/20 bg-[#101010]' : 'border-[#c5ccd4] bg-white'
-        }`}
-      >
-        <span
-          className={`inline-block h-4 w-4 rounded-full transition-transform ${
-            isDarkMode ? 'translate-x-6.5 bg-white' : 'translate-x-1 bg-black'
-          }`}
-        />
-      </button>
+        className={cn(
+          "fixed top-6 right-4 z-50 sm:right-7",
+          isDarkMode && "hover:bg-white/20"
+        )}
+      />
 
       <main className="mx-auto w-full max-w-[54rem] px-7 pb-10 pt-8 sm:px-12 lg:px-24">
         <motion.header
