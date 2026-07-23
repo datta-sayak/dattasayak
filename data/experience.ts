@@ -1,6 +1,6 @@
 export const experiences = [
   {
-    company: 'PixelForge Labs',
+    company: 'A Labs',
     position: 'Software Engineering Intern',
     duration: 'May 2025 - Aug 2025',
     location: 'Bengaluru, India',
@@ -12,7 +12,7 @@ export const experiences = [
     number: '01'
   },
   {
-    company: 'Open Source Program Office, University Tech Club',
+    company: 'Open Source Program Aperture, Resourcio community',
     position: 'Student Developer',
     duration: 'Jan 2025 - Present',
     location: 'Remote',

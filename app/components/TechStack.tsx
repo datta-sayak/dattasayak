@@ -56,7 +56,7 @@ export function TechStack() {
 
                   return (
                     <div key={`${skill}-${i}`} className="flex h-12 w-12 items-center justify-center text-black" title={skill}>
-                      <Image src={iconSrc} alt={skill} width={30} height={30} className="h-6 w-6 sm:h-10 sm:w-10 object-contain" />
+                      <Image src={iconSrc} alt={skill} width={30} height={30} className="h-6 w-6 sm:h-10 sm:w-10 grayscale object-contain" />
                     </div>
                   );
                 })}

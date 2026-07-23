@@ -7,13 +7,42 @@ import { WorkExperience } from '@/app/components/WorkExperience';
 import { Projects } from '@/app/components/Projects';
 import { Education } from '@/app/components/Education';
 import { Achievements } from '@/app/components/Achievements';
-import { GitHubCalendar } from '@/app/components/GitHubCalendar';
 import { useTheme } from '@/app/context/ThemeContext';
 import { socialLinks } from '@/data/social';
 import { TechStack } from './components/TechStack';
+import dynamic from "next/dynamic";
+
+const GitHubCalendar = dynamic(
+  () => import("react-github-calendar").then(
+      (mod) => mod.GitHubCalendar
+    ),
+  {
+    ssr: false,
+  }
+);
+
+export type Activity = {
+	date: string;
+	count: number;
+	level: 0 | 1 | 2 | 3 | 4;
+};
 
 export default function App() {
   const { isDarkMode, toggleTheme } = useTheme();
+
+  const selectLastMonths = (contributions: Activity[]) => {
+    const today = new Date();
+    const shownMonths = 11;
+
+    const startDate = new Date(today);
+    startDate.setMonth(today.getMonth() - shownMonths);
+
+    return contributions.filter((activity) => {
+      const date = new Date(activity.date);
+
+      return date >= startDate && date <= today;
+    });
+  };
 
   const sections = [
     'About', 
@@ -47,35 +76,15 @@ export default function App() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
-          className="section-divider border-b pb-2"
         >
-
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div className="flex gap-6 items-end md:gap-8">
-              <div className="flex-shrink-0">
-                <Image
-                  src="/potrait.jpg"
-                  alt="Sayak Datta Portrait"
-                  width={120}
-                  height={120}
-                  className="rounded-lg object-cover w-24 h-24 sm:w-32 sm:h-32"
-                  priority
-                />
-              </div>
               <div>
                 <h1 className="font-vt323 text-5xl sm:text-7xl">Sayak Datta</h1>
                 <p className="mt-2 text-xs text-[#5e6d80] sm:text-sm">Computer Science Student</p>
               </div>
             </div>
           </div>
-
-          <nav className="hidden sm:flex w-full justify-center flex-wrap gap-x-8 text-[11px] uppercase tracking-[0.11em] text-[#7d8999] sm:text-xs">
-            {sections.map((section) => (
-              <a key={section} href={`#${section}`} className="transition-colors hover:text-[#1d2a3a]">
-                {section}
-              </a>
-            ))}
-          </nav>
         </motion.header>
 
         <motion.div
@@ -128,10 +137,15 @@ export default function App() {
           <div>
             <p className="section-kicker">Github Contributions</p>
           </div>
-          <div className="overflow-x-auto">
-            <div>
-              <GitHubCalendar username="datta-sayak" />
-            </div>
+          <div style={{ overflowX: "hidden" }} className="flex justify-center overflow-hidden text-sm text-black/70">
+            <GitHubCalendar
+              username="datta-sayak"
+              transformData={selectLastMonths}
+              colorScheme={isDarkMode ? "dark" : "light"}
+              blockSize={10}
+              blockMargin={4}
+              fontSize={12}
+            />
           </div>
         </motion.section>
 

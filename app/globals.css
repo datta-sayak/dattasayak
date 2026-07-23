@@ -58,7 +58,8 @@ a {
 }
 
 .section-kicker {
-  @apply mb-6 text-lg font-extrabold uppercase tracking-[0.25em] text-[#d8bcbc] sm:text-xl;
+  font-family: var(--font-vt323);
+  @apply mb-6 text-sm font-bold uppercase tracking-[0.2em] text-black/50;
 }
 
 .theme-dark h1,
