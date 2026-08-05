@@ -76,7 +76,13 @@ a {
 }
 
 ::selection {
-  color: #d8bcbc;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.dark ::selection {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .font-vt323 {
