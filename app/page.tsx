@@ -32,29 +32,6 @@ export type Activity = {
 export default function App() {
   const { isDarkMode, toggleTheme } = useTheme();
 
-  const selectLastMonths = (contributions: Activity[]) => {
-    const today = new Date();
-    const shownMonths = 11;
-
-    const startDate = new Date(today);
-    startDate.setMonth(today.getMonth() - shownMonths);
-
-    return contributions.filter((activity) => {
-      const date = new Date(activity.date);
-
-      return date >= startDate && date <= today;
-    });
-  };
-
-  const sections = [
-    'About', 
-    'Experience', 
-    'Projects', 
-    'Achievements', 
-    'Education',
-    'Contributions'
-  ];
-
   return (
     <div className="relative min-h-screen pb-28">
       <ThemeToggle
@@ -128,20 +105,23 @@ export default function App() {
             hidden: { opacity: 0, y: 14 },
             visible: { opacity: 1, y: 0 },
           }}
-          // className="space-y-4 pt-14"
+          className="relative left-1/2 right-1/2 -mx-[50vw] w-screen px-4 sm:px-8"
         >
-          <div>
-            <p className="section-kicker">Github Contributions</p>
-          </div>
-          <div className="flex justify-center overflow-hidden text-sm text-black/70">
-            <GitHubCalendar
-              username="datta-sayak"
-              transformData={selectLastMonths}
-              colorScheme={isDarkMode ? "dark" : "light"}
-              blockSize={10}
-              blockMargin={4}
-              fontSize={12}
-            />
+          <div className="overflow-x-auto">
+            <div className="flex justify-center min-w-max">
+              <div>
+                <p className="section-kicker mb-4 ml-8">
+                  Github Contributions
+                </p>
+                <GitHubCalendar
+                  username="datta-sayak"
+                  colorScheme={isDarkMode ? "dark" : "light"}
+                  blockSize={10}
+                  blockMargin={4}
+                  fontSize={12}
+                />
+              </div>
+            </div>
           </div>
         </motion.section>
 
