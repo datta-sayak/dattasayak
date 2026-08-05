@@ -105,12 +105,12 @@ export default function App() {
             hidden: { opacity: 0, y: 14 },
             visible: { opacity: 1, y: 0 },
           }}
-          className="relative left-1/2 right-1/2 -mx-[50vw] w-screen px-4 sm:px-8"
+          className="relative left-1/2 -translate-x-1/2 w-[100vw] max-w-[100vw] px-4 sm:px-8 overflow-hidden"
         >
           <div className="overflow-x-auto">
             <div className="flex justify-center min-w-max">
               <div>
-                <p className="section-kicker mb-4 ml-8">
+                <p className="section-kicker mb-4 ml-3 lg:ml-8">
                   Github Contributions
                 </p>
                 <GitHubCalendar
@@ -152,7 +152,13 @@ export default function App() {
                     : 'pointer-events-none'
                 }`}
               >
-                <Image src={obj.src} alt={obj.alt} width={18} height={18} className={isDarkMode ? 'invert' : ''} />
+                <Image 
+                  src={obj.src}
+                  alt={obj.alt}
+                  priority 
+                  width={18} 
+                  height={18} 
+                  className={isDarkMode ? 'invert' : ''} />
               </a>
             );
           })}

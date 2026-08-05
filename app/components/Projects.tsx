@@ -1,4 +1,4 @@
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, GitBranch } from 'lucide-react';
 import { projects } from '@/data/projects';
 
 export function Projects() {
@@ -34,7 +34,7 @@ export function Projects() {
                           rel="noopener noreferrer"
                           title="GitHub"
                         >
-                          <Github className="w-4 h-4 opacity-60 transition-colors hover:opacity-100" />
+                          <GitBranch className="w-4 h-4 opacity-60 transition-colors hover:opacity-100" />
                         </a>
                       )}
                       {project.demo.trim() && (
