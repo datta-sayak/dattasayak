@@ -8,11 +8,11 @@
   --scrollbar-size: 6px;
   --scrollbar-thumb: #d8bcbc;
   --scrollbar-thumb-hover: #d8bcbc;
-  --background: oklch(1 0 0);
+  --background: #F5F4F3;
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  --card: #F5F4F3;
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
+  --popover: #F5F4F3;
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
@@ -60,7 +60,7 @@ body {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.55;
-  background: #ffffff;
+  background: #F5F4F3;
 }
 
 html.dark {

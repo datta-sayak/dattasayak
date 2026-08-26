@@ -1,5 +1,6 @@
 'use client';
 
+import { ThemeProvider as NextThemeProvider, useTheme as useNextTheme } from 'next-themes';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 type ThemeContextValue = {
@@ -10,24 +11,38 @@ type ThemeContextValue = {
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  return (
+    <NextThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+      <ThemeBridge>{children}</ThemeBridge>
+    </NextThemeProvider>
+  );
+}
+
+function ThemeBridge({ children }: { children: React.ReactNode }) {
+  const { resolvedTheme, setTheme } = useNextTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDarkMode);
+    setMounted(true);
+  }, []);
+
+  const isDarkMode = mounted && resolvedTheme === 'dark';
+
+  useEffect(() => {
     document.documentElement.classList.toggle('theme-dark', isDarkMode);
   }, [isDarkMode]);
 
   const value = useMemo(
     () => ({
       isDarkMode,
-      toggleTheme: () => setIsDarkMode((prev) => !prev),
+      toggleTheme: () => setTheme(isDarkMode ? 'light' : 'dark'),
     }),
-    [isDarkMode]
+    [isDarkMode, setTheme]
   );
 
   return (
     <ThemeContext.Provider value={value}>
-      <div className={isDarkMode ? 'theme-dark bg-[#101010] text-white' : 'bg-white text-black'}>{children}</div>
+      <div className={isDarkMode ? 'theme-dark bg-[#101010] text-white' : 'bg-[#F5F4F3] text-black'}>{children}</div>
     </ThemeContext.Provider>
   );
 }

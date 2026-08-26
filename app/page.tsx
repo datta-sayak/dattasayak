@@ -11,8 +11,7 @@ import { useTheme } from '@/app/context/ThemeContext';
 import { socialLinks } from '@/data/social';
 import { TechStack } from './components/TechStack';
 import dynamic from "next/dynamic";
-import { ThemeToggle } from '@/components/shadcnblocks/theme-toggle';
-import { cn } from '@/lib/utils';
+import { ThemeToggleButton } from '@/components/ui/skiper-ui/skiper26';
 
 const GitHubCalendar = dynamic(
   () => import("react-github-calendar").then(
@@ -30,18 +29,15 @@ export type Activity = {
 };
 
 export default function App() {
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { isDarkMode } = useTheme();
 
   return (
     <div className="relative min-h-screen pb-28">
-      <ThemeToggle
-        variant="ghost"
-        size="icon"
-        onClick={toggleTheme}
-        className={cn(
-          "fixed top-6 right-4 z-50 sm:right-7",
-          isDarkMode && "hover:bg-white/20"
-        )}
+      <ThemeToggleButton
+        variant="circle"
+        start="top-right"
+        blur
+        className="fixed top-7 right-6 z-50 sm:right-8"
       />
 
       <main className="mx-auto w-full max-w-[54rem] px-7 pb-10 pt-8 sm:px-12 lg:px-24">
@@ -50,10 +46,10 @@ export default function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
         >
-          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div className="flex gap-6 items-end md:gap-8">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-center">
+            <div className="flex flex-col items-center gap-6 text-center md:gap-8">
               <div>
-                <h1 className="font-vt323 text-5xl sm:text-7xl">Sayak Datta</h1>
+                <h1 className="font-vt323 font-bold text-5xl sm:text-7xl uppercase tracking-widest">Sayak Datta</h1>
                 <p className="mt-2 text-xs text-[#5e6d80] sm:text-sm">Computer Science Student</p>
               </div>
             </div>
