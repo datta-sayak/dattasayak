@@ -10,6 +10,7 @@ import { Achievements } from '@/app/components/Achievements';
 import { useTheme } from '@/app/context/ThemeContext';
 import { socialLinks } from '@/data/social';
 import { TechStack } from './components/TechStack';
+import { Timer } from './components/Timer';
 import dynamic from "next/dynamic";
 import { ThemeToggleButton } from '@/components/ui/skiper-ui/skiper26';
 
@@ -49,8 +50,14 @@ export default function App() {
           <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-center">
             <div className="flex flex-col items-center gap-6 text-center md:gap-8">
               <div>
-                <h1 className="font-vt323 font-bold text-5xl sm:text-7xl uppercase tracking-widest">Sayak Datta</h1>
-                <p className="mt-2 text-xs text-[#5e6d80] sm:text-sm">Computer Science Student</p>
+                <h1 className="font-vt323 font-bold text-5xl sm:text-7xl uppercase tracking-widest">
+                  Sayak Datta
+                </h1>
+                <div className="mt-2 flex items-center justify-center gap-3 text-xs text-black/60 sm:text-sm">
+                  <p>Computer Science Student</p>
+                  <span className="size-1.5 rounded-full bg-current" />
+                  <Timer />
+                </div>
               </div>
             </div>
           </div>
