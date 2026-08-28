@@ -94,6 +94,10 @@ a {
   @apply mb-6 text-sm font-bold uppercase tracking-[0.2em] text-black/50;
 }
 
+.github-calendar rect {
+  stroke: none !important;
+}
+
 .theme-dark {
   --background: #101010;
   --card: #101010;

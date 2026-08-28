@@ -116,13 +116,16 @@ export default function App() {
                 <p className="section-kicker mb-4 ml-3 lg:ml-8">
                   Github Contributions
                 </p>
-                <GitHubCalendar
-                  username="datta-sayak"
-                  colorScheme={isDarkMode ? "dark" : "light"}
-                  blockSize={10}
-                  blockMargin={4}
-                  fontSize={12}
-                />
+                <div className="github-calendar">
+                  <GitHubCalendar
+                    username="datta-sayak"
+                    colorScheme={isDarkMode ? "dark" : "light"}
+                    blockSize={12}
+                    blockMargin={2}
+                    blockRadius={0}
+                    fontSize={12}
+                  />
+                </div>
               </div>
             </div>
           </div>
